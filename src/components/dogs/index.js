@@ -4,9 +4,10 @@ import {
   Header,
   Logo,
   Item,
-  BgImg,
+  ImgWrap,
   DropDown
 } from './styles';
+import ImageLoader from '../image-loader';
 
 class Dogs extends Component {
 
@@ -14,7 +15,6 @@ class Dogs extends Component {
     images: {},
     breeds: {},
     active: null,
-    transitioning: false,
     selected: 'affenpinscher',
     dropDownActive: false
   };
@@ -40,10 +40,7 @@ class Dogs extends Component {
 
   handleBreedSelection = (e) => {
     this.toggleDropDownSelection();
-    this.setState({
-      selected: e.currentTarget.textContent,
-      transitioning: true
-    });
+    this.setState({selected: e.currentTarget.textContent});
   };
 
   toggleDropDownSelection = () => {
@@ -69,27 +66,25 @@ class Dogs extends Component {
     if (this.state.selected !== prevState.selected){
       this.handleDogImageData();
     }
-
-    if (this.state.images.message !== prevState.images.message) {
-      setTimeout(() => {
-        this.setState({
-          transitioning: false
-        })
-      }, 1000)
-    }
   }
 
   render() {
-    const { images, breeds, active, dropDownActive, selected, transitioning } = this.state;
+    const { images, breeds, active, dropDownActive, selected } = this.state;
 
-    const dogImages = images.message && images.message.slice(0, 20).map((data, index) => {
+    const dogImages = images.message && images.message.map((data, index) => {
+
+      const isUpdatedSource = data.includes(selected);
+
       return (
-        <Item key={index}
-              className={`gds-skeleton decorate gds-flex__item item-to-select ${active === index ? 'selected': ''} ${transitioning ? 'transitioning' : ''}`}
-              onClick={() => this.handleSelectionClick(index)}
+        <Item
+          key={index}
+          className={`gds-skeleton decorate gds-flex__item item-to-select ${active === index ? 'selected': ''}`}
+          onClick={() => this.handleSelectionClick(index)}
         >
           <div className={`item-image item-image-${index}`}>
-            <BgImg style={{backgroundImage: `url(${data})`}}/>
+            <ImgWrap className="image-wrap">
+              { isUpdatedSource && <ImageLoader src={data}/> }
+            </ImgWrap>
           </div>
 
           <div
@@ -110,6 +105,7 @@ class Dogs extends Component {
         </li>
       )
     });
+
     return (
       <>
         <Header>
@@ -141,5 +137,6 @@ class Dogs extends Component {
     );
   }
 }
+
 
 export default Dogs;

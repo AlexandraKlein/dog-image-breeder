@@ -4,7 +4,6 @@ import {
   Header,
   Logo,
   Item,
-  ImgWrap,
   DropDown
 } from './styles';
 import ImageLoader from '../image-loader';
@@ -82,9 +81,7 @@ class Dogs extends Component {
           onClick={() => this.handleSelectionClick(index)}
         >
           <div className={`item-image item-image-${index}`}>
-            <ImgWrap className="image-wrap">
-              { isUpdatedSource && <ImageLoader src={data}/> }
-            </ImgWrap>
+            { isUpdatedSource && <ImageLoader src={data}/> }
           </div>
 
           <div

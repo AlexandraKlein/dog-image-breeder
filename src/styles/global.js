@@ -30,8 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     ${imageItemCSS()}
     
     
-    .image-wrap,
-    .item-image{
+    .item-image {
       position: relative;
       width: 100%;
       height: 100%;

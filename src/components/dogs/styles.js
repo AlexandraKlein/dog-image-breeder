@@ -85,12 +85,6 @@ export const Item = styled.div`
   overflow: hidden;
 `;
 
-export const ImgWrap = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-`;
-
 export const DropDown = styled.div`
   width: calc(100% - 40px);
   margin: 45px 0 20px 20px;

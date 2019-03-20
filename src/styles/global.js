@@ -1,5 +1,4 @@
 import {createGlobalStyle, css, keyframes} from 'styled-components'
-import { theme, fontStack } from './theme';
 
 const fadeIn = keyframes`
   from {
@@ -26,15 +25,9 @@ function imageItemCSS() {
 
 export const GlobalStyle = createGlobalStyle`  
   body {
-    ${fontStack};
-    font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     ${imageItemCSS()}
-    
-    p {
-      font-size: 18px;
-    }
     
     .item-image {
       width: 100%;
@@ -55,7 +48,7 @@ export const GlobalStyle = createGlobalStyle`
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: ${theme.primary};
+        background-color: var(--primaryColor);
         mix-blend-mode: color;
         opacity: 0;
         transition: .23s ease;
@@ -73,7 +66,7 @@ export const GlobalStyle = createGlobalStyle`
     .selected { 
       transform: scale(1.5);
       z-index: 1;
-      border: 8px solid ${theme.orange};
+      border: 8px solid var(--orangeColor);
       
       .item-image > div {
         filter: unset;

@@ -1,6 +1,6 @@
 import {css, keyframes} from "styled-components";
 import styled from "styled-components";
-import {bp, theme} from "../../styles/theme";
+import { bp } from "../../styles/theme";
 
 function spanCSS() {
   let styles = '';
@@ -50,7 +50,7 @@ export const Header = styled.div`
   }
   
   h1 {
-    color: ${theme.darkBlue};
+    color: var(--darkBlueColor);
   }
   
   span {
@@ -73,7 +73,7 @@ export const Logo = styled.div`
   `}
   
   i {
-    color: ${theme.darkBlue};
+    color: var(--darkBlueColor);
   }
 `;
 

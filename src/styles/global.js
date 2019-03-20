@@ -75,7 +75,7 @@ export const GlobalStyle = createGlobalStyle`
       z-index: 1;
       border: 8px solid ${theme.orange};
       
-      > div {
+      .item-image > div {
         filter: unset;
       }
     }

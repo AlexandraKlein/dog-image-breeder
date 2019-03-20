@@ -91,11 +91,4 @@ export const GlobalStyle = createGlobalStyle`
         filter: unset;
       }
     }
-    
-    .transitioning {
-      .image-wrap {
-        opacity: 0;
-        animation: ${fadeIn} .35s ease-in-out forwards .75s;
-      }
-    }
 `;

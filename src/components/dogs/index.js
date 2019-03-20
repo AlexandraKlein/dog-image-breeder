@@ -15,7 +15,6 @@ class Dogs extends Component {
     images: {},
     breeds: {},
     active: null,
-    transitioning: false,
     selected: 'affenpinscher',
     dropDownActive: false
   };
@@ -41,10 +40,7 @@ class Dogs extends Component {
 
   handleBreedSelection = (e) => {
     this.toggleDropDownSelection();
-    this.setState({
-      selected: e.currentTarget.textContent,
-      transitioning: true
-    });
+    this.setState({selected: e.currentTarget.textContent});
   };
 
   toggleDropDownSelection = () => {
@@ -70,18 +66,10 @@ class Dogs extends Component {
     if (this.state.selected !== prevState.selected){
       this.handleDogImageData();
     }
-
-    if (this.state.images.message !== prevState.images.message) {
-      setTimeout(() => {
-        this.setState({
-          transitioning: false
-        })
-      }, 1000)
-    }
   }
 
   render() {
-    const { images, breeds, active, dropDownActive, selected, transitioning } = this.state;
+    const { images, breeds, active, dropDownActive, selected } = this.state;
 
     const dogImages = images.message && images.message.map((data, index) => {
 
@@ -90,15 +78,12 @@ class Dogs extends Component {
       return (
         <Item
           key={index}
-          className={`gds-skeleton decorate gds-flex__item item-to-select ${active === index ? 'selected': ''} ${transitioning ? 'transitioning' : ''}`}
+          className={`gds-skeleton decorate gds-flex__item item-to-select ${active === index ? 'selected': ''}`}
           onClick={() => this.handleSelectionClick(index)}
         >
           <div className={`item-image item-image-${index}`}>
             <ImgWrap className="image-wrap">
-
-              { isUpdatedSource &&
-                <ImageLoader src={data}/>
-              }
+              { isUpdatedSource && <ImageLoader src={data}/> }
             </ImgWrap>
           </div>
 
@@ -120,6 +105,7 @@ class Dogs extends Component {
         </li>
       )
     });
+
     return (
       <>
         <Header>

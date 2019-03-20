@@ -96,7 +96,6 @@ class Dogs extends Component {
           <div className={`item-image item-image-${index}`}>
             <ImgWrap className="image-wrap">
 
-
               { isUpdatedSource &&
                 <ImageLoader src={data}/>
               }

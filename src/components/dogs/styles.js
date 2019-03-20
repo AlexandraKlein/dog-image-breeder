@@ -82,6 +82,7 @@ export const Item = styled.div`
   width: 260px;
   height: 260px;
   margin: 20px;
+  flex-grow: unset;
   overflow: hidden;
 `;
 

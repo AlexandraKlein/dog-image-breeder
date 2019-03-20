@@ -13,7 +13,7 @@ const fadeIn = keyframes`
 function imageItemCSS() {
   let styles = '';
 
-  for (let i = 0; i < 20; i += 1) {
+  for (let i = 0; i < 30; i += 1) {
     styles += `
       .item-image-${i} {
         animation-delay: ${.5 + i/15}s !important;
@@ -29,10 +29,29 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     ${imageItemCSS()}
     
-    .item-image {
+    
+    .image-wrap,
+    .item-image{
+      position: relative;
       width: 100%;
       height: 100%;
+    }
+    
+    .item-image {
       opacity: 0;
+    }
+    
+    .img-loading {
+      opacity: 0
+      width: 100%
+      height: auto
+    }
+    
+    .img-loaded {
+      animation: ${fadeIn} .35s ease-in-out forwards;
+    }
+    
+    .item-image {
       animation: ${fadeIn} .35s ease-in-out forwards;
     }
    
@@ -68,13 +87,13 @@ export const GlobalStyle = createGlobalStyle`
       z-index: 1;
       border: 8px solid var(--orangeColor);
       
-      .item-image > div {
+      img {
         filter: unset;
       }
     }
     
     .transitioning {
-      .item-image > div {
+      .image-wrap {
         opacity: 0;
         animation: ${fadeIn} .35s ease-in-out forwards .75s;
       }

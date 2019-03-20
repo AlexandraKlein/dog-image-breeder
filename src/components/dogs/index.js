@@ -4,9 +4,10 @@ import {
   Header,
   Logo,
   Item,
-  BgImg,
+  ImgWrap,
   DropDown
 } from './styles';
+import ImageLoader from '../image-loader';
 
 class Dogs extends Component {
 
@@ -82,14 +83,24 @@ class Dogs extends Component {
   render() {
     const { images, breeds, active, dropDownActive, selected, transitioning } = this.state;
 
-    const dogImages = images.message && images.message.slice(0, 20).map((data, index) => {
+    const dogImages = images.message && images.message.map((data, index) => {
+
+      const isUpdatedSource = data.includes(selected);
+
       return (
-        <Item key={index}
-              className={`gds-skeleton decorate gds-flex__item item-to-select ${active === index ? 'selected': ''} ${transitioning ? 'transitioning' : ''}`}
-              onClick={() => this.handleSelectionClick(index)}
+        <Item
+          key={index}
+          className={`gds-skeleton decorate gds-flex__item item-to-select ${active === index ? 'selected': ''} ${transitioning ? 'transitioning' : ''}`}
+          onClick={() => this.handleSelectionClick(index)}
         >
           <div className={`item-image item-image-${index}`}>
-            <BgImg style={{backgroundImage: `url(${data})`}}/>
+            <ImgWrap className="image-wrap">
+
+
+              { isUpdatedSource &&
+                <ImageLoader src={data}/>
+              }
+            </ImgWrap>
           </div>
 
           <div
@@ -141,5 +152,6 @@ class Dogs extends Component {
     );
   }
 }
+
 
 export default Dogs;

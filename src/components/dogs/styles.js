@@ -85,13 +85,10 @@ export const Item = styled.div`
   overflow: hidden;
 `;
 
-export const BgImg = styled.div`
-  background-size: cover;
-  background-position: center;
+export const ImgWrap = styled.div`
+  position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
 `;
 
 export const DropDown = styled.div`

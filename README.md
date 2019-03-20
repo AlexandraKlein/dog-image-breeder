@@ -1,19 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#Hello Gum Gum!
 
 ## Development: Getting Started Using Yarn
 
+Use node version 8.12: `nvm use 8.12`
+
 ### `yarn install`
 ### `yarn start`
-
-To build and run build in a browser:
-### `yarn build`
-### `yarn start build`
 
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

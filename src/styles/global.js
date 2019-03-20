@@ -55,7 +55,7 @@ export const GlobalStyle = createGlobalStyle`
       animation: ${fadeIn} .35s ease-in-out forwards;
     }
    
-    .item-to-select {
+    .item-select {
       position: relative;
       transition: .23s ease;
       cursor: pointer;

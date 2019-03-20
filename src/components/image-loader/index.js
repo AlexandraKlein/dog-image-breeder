@@ -23,7 +23,7 @@ class ImageLoader extends Component {
 
   render() {
 
-    let { className, loadedClassName, loadingClassName, ...props } = this.props;
+    let { className, loadedClassName, loadingClassName } = this.props;
 
     className = `${className} ${this.state.loaded
       ? loadedClassName

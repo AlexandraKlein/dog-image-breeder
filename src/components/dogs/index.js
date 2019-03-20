@@ -78,7 +78,7 @@ class Dogs extends Component {
       return (
         <Item
           key={index}
-          className={`gds-skeleton gds-flex__item--grow-0 decorate gds-flex__item item-to-select ${active === index ? 'selected': ''}`}
+          className={`gds-skeleton gds-flex__item--grow-0 decorate gds-flex__item item-select ${active === index ? 'selected': ''}`}
           onClick={() => this.handleSelectionClick(index)}
         >
           <div className={`item-image item-image-${index}`}>
@@ -98,7 +98,10 @@ class Dogs extends Component {
 
     const dogBreeds = breeds.message && Object.keys(breeds.message).map((data, index) => {
       return (
-        <li className="gds-button-dropdown__menu-item" key={index} onClick={this.handleBreedSelection}>
+        <li
+          className="gds-button-dropdown__menu-item"
+          key={index}
+          onClick={this.handleBreedSelection}>
           <span className="gds-button-dropdown__menu-link">
             {data}
           </span>
@@ -117,11 +120,10 @@ class Dogs extends Component {
             <h2 className="gds-text--header-sm -m-b-3">{this.handleWrapLines("Let's look at some dog photos! Pick a breed. Any breed.")}</h2>
           </div>
         </Header>
-        <DropDown className={`gds-button-dropdown ${dropDownActive ? 'gds-button-dropdown--active' : ''}`} data-gds-dropdown="">
+        <DropDown className={`gds-button-dropdown ${dropDownActive ? 'gds-button-dropdown--active' : ''}`}>
           <button
             type="button"
             className="gds-button-dropdown__button gds-button--primary"
-            data-gds-dropdown-button=""
             onClick={this.toggleDropDownSelection}
           >
             { selected }
@@ -130,13 +132,12 @@ class Dogs extends Component {
             { dogBreeds }
           </ul>
         </DropDown>
-        <section className="gds-flex gds-flex--wrap dog-images">
+        <section className="gds-flex gds-flex--wrap">
           { dogImages }
         </section>
       </>
     );
   }
 }
-
 
 export default Dogs;

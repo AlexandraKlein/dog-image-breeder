@@ -79,7 +79,7 @@ class Dogs extends Component {
       return (
         <Item
           key={index}
-          className={`gds-skeleton gds-flex__item--grow-0 decorate gds-flex__item item-select ${active === index ? 'selected': ''}`}
+          className={`gds-skeleton decorate gds-flex__item item-select ${active === index ? 'selected': ''}`}
           onClick={() => this.handleSelectionClick(index)}
         >
           <div className={`item-image item-image-${index}`}>

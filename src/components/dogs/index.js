@@ -19,15 +19,17 @@ class Dogs extends Component {
   };
 
   handleDogBreedData = () => {
-    axios.get('https://dog.ceo/api/breeds/list/all').then(status => {
-      this.setState({breeds: status.data});
-    });
+    axios
+      .get('https://dog.ceo/api/breeds/list/all')
+      .then(status => { this.setState({breeds: status.data}) })
+      .catch(error => console.log('Error', error))
   };
 
   handleDogImageData = () => {
-    axios.get(`https://dog.ceo/api/breed/${this.state.selected}/images`).then(status => {
-      this.setState({images: status.data});
-    });
+    axios
+      .get(`https://dog.ceo/api/breed/${this.state.selected}/images`)
+      .then(status => { this.setState({images: status.data}) })
+      .catch(error => console.log('Error', error))
   };
 
   handleSelectionClick = index => {
